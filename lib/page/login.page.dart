@@ -2,6 +2,27 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_teste/page/home.page.dart';
 import 'package:flutter_teste/services/login_api.dart';
+import 'package:flutter_teste/services/http_service.dart';
+
+
+void main() async {
+  String _initialRoute = '/';
+
+  bool isLoggedIn = await HttpService().ensureLoggedIn();
+
+  if (isLoggedIn) {
+    _initialRoute = '/home';
+  }
+
+  runApp(
+      MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'teste',
+          initialRoute: _initialRoute,
+        //  routes:
+      )
+  );
+}
 
 
 class LoginPage extends StatelessWidget {
@@ -152,8 +173,6 @@ class LoginPage extends StatelessWidget {
         ),
       ),
     );
-
-
-
+    
   }
 }
