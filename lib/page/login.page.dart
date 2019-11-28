@@ -5,25 +5,6 @@ import 'package:flutter_teste/services/login_api.dart';
 import 'package:flutter_teste/services/http_service.dart';
 
 
-void main() async {
-  String _initialRoute = '/';
-
-  bool isLoggedIn = await HttpService().ensureLoggedIn();
-
-  if (isLoggedIn) {
-    _initialRoute = '/home';
-  }
-
-  runApp(
-      MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'teste',
-          initialRoute: _initialRoute,
-        //  routes:
-      )
-  );
-}
-
 
 class LoginPage extends StatelessWidget {
 
@@ -41,18 +22,15 @@ class LoginPage extends StatelessWidget {
   }
 
   void _clickButton(BuildContext context) async {
-    bool formOk =_formKey.currentState.validate();
 
-    if(!formOk){
-      return;
-    }
     String cpf = _ctrlCpf.text;
     String data = _ctrlData.text;
 
     print ("cpf:$cpf data:$data");
 
-    var response = await LoginApi.login(cpf, data);
+    var response = await LoginApi.getAuth(cpf, data);
     if(response) {
+      ServiceAPI.getDados('beneficiario');
       _navegaHomepage(context);
     }
   }
@@ -66,6 +44,21 @@ class LoginPage extends StatelessWidget {
   final _ctrlCpf = TextEditingController();
   final _ctrlData = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+
+ 
+
+  Widget buildSnackbar(
+      String text, Color bgColor, Color textColor, Duration duration) {
+    return SnackBar(
+      content: Text(
+        text,
+        style: TextStyle(color: textColor, fontSize: 15.0),
+        textAlign: TextAlign.center,
+      ),
+      backgroundColor: bgColor,
+      duration: duration,
+    );
+  }
 
 
   @override
@@ -173,6 +166,6 @@ class LoginPage extends StatelessWidget {
         ),
       ),
     );
-    
+
   }
 }
