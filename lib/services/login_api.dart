@@ -11,14 +11,12 @@ class LoginApi{
     var response = await http.post(url, body: {'cpfbene': cpf, 'datanasc': data});
 
     if(convert.jsonDecode(response.body) == true){
-      getToken(cpf);
       return true;
     }else{
       return false;
     }
 
   }
-
 
   static getToken(String cpf) async {
     SharedPreferences.setMockInitialValues({});
@@ -33,31 +31,32 @@ class LoginApi{
       'scope' : ''
     });
     var token = convert.jsonDecode(response.body);
-
-    prefs.setString("api_token", token.toString());
+    prefs.setString("api_token", token['access_token']);
     prefs.setString("cpf", cpf);
 
   }
 
-   static getTokenApi() async {
-
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-
-    var token = (prefs.getString('api_token'));
-
-    return token.toString();
-  }
-
-   static getUserCpf() async {
+   static getTokenAPI() async {
 
      SharedPreferences prefs = await SharedPreferences.getInstance();
 
-     var token = (prefs.getString('cpf'));
+     var token = prefs.getString("api_token");
 
-     return token.toString();
+     return token;
    }
 
+   static getCpf() async {
+
+     SharedPreferences prefs = await SharedPreferences.getInstance();
+
+     var cpf = prefs.getString("cpf");
+
+     return cpf;
+   }
+
+
 }
+
 
 
 

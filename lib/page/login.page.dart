@@ -2,9 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_teste/page/home.page.dart';
 import 'package:flutter_teste/services/login_api.dart';
-import 'package:flutter_teste/services/http_service.dart';
-
-
 
 class LoginPage extends StatelessWidget {
 
@@ -26,11 +23,9 @@ class LoginPage extends StatelessWidget {
     String cpf = _ctrlCpf.text;
     String data = _ctrlData.text;
 
-    print ("cpf:$cpf data:$data");
-
     var response = await LoginApi.getAuth(cpf, data);
+
     if(response) {
-      ServiceAPI.getDados('beneficiario');
       _navegaHomepage(context);
     }
   }

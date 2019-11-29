@@ -5,26 +5,22 @@ import 'package:flutter_teste/services/login_api.dart';
 
 class ServiceAPI{
 
-  static Future getDados( String rota ) async{
+  static Future getDados( String rota, String token, String cpf) async{
 
-    var access_token = await LoginApi.getTokenApi();
-    var cpf = await LoginApi.getUserCpf();
-    var url = 'http://plasa.develapi.gruponobre.com/'+ rota +'?id=03720080382';
+    var url = 'http://plasa.develapi.gruponobre.com/'+ rota +'?id='+cpf;
     String body = '{"id": "03720080382"}';
-    print(access_token);
     Map<String, String> headers = {
       'Content-type' : 'application/json',
       'Accept': '*/*',
-      'Authorization' : 'Bearer' + access_token,
+      'Authorization' : 'Bearer ' + token,
       'Cache-Control' : 'no-cache',
     };
 
     var response = await http.get(url, headers: headers);
-    int statusCode = response.statusCode;
-    print(statusCode);
 
+    var dados = convert.jsonDecode(response.body);
 
-
+    return dados;
   }
 
 }

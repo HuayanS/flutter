@@ -10,6 +10,7 @@ class _CarteirinhaPageState extends State<CarteirinhaPage> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: new AppBar(
         title: new Image.asset("assets/plasa.png",fit: BoxFit.cover,
@@ -17,6 +18,7 @@ class _CarteirinhaPageState extends State<CarteirinhaPage> {
         centerTitle: true,
       ),
       body: Container(
+
         width: double.maxFinite,
         height: double.maxFinite,
         child: Stack(
@@ -26,6 +28,7 @@ class _CarteirinhaPageState extends State<CarteirinhaPage> {
               left: 20.0,
               right: 20.0,
               child: Container(
+
                 width: 200,
                 height: 580,
                 decoration: BoxDecoration(
@@ -47,6 +50,7 @@ class _CarteirinhaPageState extends State<CarteirinhaPage> {
             ),
           ],
         ),
+
       ),
     );
   }
