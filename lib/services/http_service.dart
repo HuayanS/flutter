@@ -5,7 +5,7 @@ import 'package:flutter_teste/services/login_api.dart';
 
 class ServiceAPI{
 
-  static Future getDados( String rota, String token, String cpf) async{
+  static Future getDados( rota, token, cpf) async{
 
     var url = 'http://plasa.develapi.gruponobre.com/'+ rota +'?id='+cpf;
     String body = '{"id": "03720080382"}';
@@ -20,7 +20,15 @@ class ServiceAPI{
 
     var dados = convert.jsonDecode(response.body);
 
-    return dados;
+    return await http.get(url+dados);
   }
 
+}
+const baseUrl="http://plasa.develapi.gruponobre.com";
+
+class API {
+  static Future getBeneficiario()async{
+    var url =baseUrl+"/beneficiario";
+    return await http.get(url);
+  }
 }

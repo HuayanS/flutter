@@ -15,18 +15,6 @@ import 'package:flutter_teste/services/login_api.dart';
 
 class HomePage extends StatelessWidget {
 
-
-  String dadosUser = 'teste';
-
-  void _clickButton() async {
-    var token = await LoginApi.getTokenAPI();
-    var cpf = await LoginApi.getCpf();
-    var dados = await ServiceAPI.getDados('beneficiario', token, cpf);
-
-    return dados['nomebene'];
-  }
-
-
   Widget image_slider_carousel = Container(
     height: 300,
     child: Carousel(
