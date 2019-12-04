@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_teste/page/carteirinha.dart';
 import 'package:flutter_teste/page/home.page.dart';
 import 'page/login.page.dart';
 

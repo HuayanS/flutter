@@ -1,11 +1,17 @@
-class teste {
-  String codibene;
-  String nomebene;
+import 'package:json_annotation/json_annotation.dart';
 
-  teste({this.codibene, this.nomebene});
+part 'teste.g.dart';
 
-  teste.fromJson(Map<String, dynamic> json) {
-    codibene = json['codibene'];
-    nomebene = json['nomebene'];
+@JsonSerializable()
+class Bene {
+  Bene({
+    this.nomebene,
+    this.cpfbene,
+  });
+
+  final String nomebene;
+  final int cpfbene;
+
+  factory Bene.fromJson(Map<String, dynamic> json) =>
+      _$BeneFromJson(json);
   }
-}

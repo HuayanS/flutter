@@ -161,6 +161,8 @@ class Beneficiario {
     this.idpassword,
   });
 
+  Beneficiario.teste(Map json): dataadmi = json["dataadmi"], codibene = json["codibene"], cpfbene= json ["cpfbane"];
+
   factory Beneficiario.fromJson(Map<String, dynamic> json) => Beneficiario(
     codibene: json["codibene"],
     nomebene: json["nomebene"],
