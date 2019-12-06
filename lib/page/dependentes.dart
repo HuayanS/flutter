@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_teste/services/http_service.dart';
+import 'package:flutter_teste/services/login_api.dart';
 
 class DependentesPage extends StatefulWidget {
   @override
@@ -9,21 +10,32 @@ class DependentesPage extends StatefulWidget {
 }
 
 class _DependentesPageState extends State<DependentesPage> {
-  var dados = ServiceAPI();
+
+  Future api() async{
+
+      Map data = await LoginApi().getTokenCPF();
+
+      var dados = await ServiceAPI().getDados('/contratos', data['token'], data['cpf']);
+
+      return dados;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        title:Text('dsas'),
+        title: new Image.asset(
+          "assets/plasa.png",
+          fit: BoxFit.cover,
+        ),
         centerTitle: true,
       ),
       body: Container(
         child: FutureBuilder(
-          future: dados.getDados('/beneficiario',dados.info['token'],dados.info['cpf']),
+          future: api(),
           builder: (context, snapshot) {
             return snapshot.data != null
-                ? Text(snapshot.data['nomebene'])
+                ? Text(snapshot.data[1]['codibene'])
                 : Text('');
           },
         ),

@@ -4,18 +4,18 @@ import 'dart:convert' as convert;
 import 'package:shared_preferences/shared_preferences.dart';
 
 
-class LoginApi{
+class LoginApi {
 
-  static Future getAuth( String cpf, String data) async{
+  static Future getAuth(String cpf, String data) async {
     var url = 'http://plasa.develapi.gruponobre.com/teste';
-    var response = await http.post(url, body: {'cpfbene': cpf, 'datanasc': data});
+    var response = await http.post(
+        url, body: {'cpfbene': cpf, 'datanasc': data});
 
-    if(convert.jsonDecode(response.body) == true){
+    if (convert.jsonDecode(response.body) == true) {
       return true;
-    }else{
+    } else {
       return false;
     }
-
   }
 
   static getToken(String cpf) async {
@@ -25,10 +25,10 @@ class LoginApi{
 
     var url = 'http://plasa.develapi.gruponobre.com/oauth/token';
     var response = await http.post(url, body: {
-      'grant_type' : 'client_credentials',
-      'client_id' : '2',
-      'client_secret' : 'mhjznHv3PTNQWWSLzkzox8eOT0tUxUKE8pKEWr6u',
-      'scope' : ''
+      'grant_type': 'client_credentials',
+      'client_id': '2',
+      'client_secret': 'mhjznHv3PTNQWWSLzkzox8eOT0tUxUKE8pKEWr6u',
+      'scope': ''
     });
     var token = convert.jsonDecode(response.body);
     prefs.setString("api_token", token['access_token']);
@@ -36,15 +36,13 @@ class LoginApi{
   }
 
   Future<Map> getTokenCPF() async {
-
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     var token = prefs.getString("api_token");
     var cpf = prefs.getString("cpf");
 
-    var data = {'token' : token,'cpf' : cpf};
+    var data = {'token': token, 'cpf': cpf};
 
     return data;
   }
-
 }

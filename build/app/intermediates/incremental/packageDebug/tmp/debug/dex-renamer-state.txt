@@ -1,4 +1,4 @@
-#Fri Dec 06 14:20:46 BRST 2019
+#Fri Dec 06 15:36:34 BRST 2019
 base.0=C\:\\Users\\suporte.GRUPONOBRE\\Downloads\\flutter-0612\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

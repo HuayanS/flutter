@@ -7,18 +7,11 @@ import 'package:flutter_teste/services/login_api.dart';
 
 class ServiceAPI {
   final String baseUrl = "http://plasa.develapi.gruponobre.com";
-  var info = new Map();
+  var info = {};
 
-  ServiceAPI(){
-    LoginApi.getAuth('03720080382', '10/03/1953');
-    LoginApi().getTokenCPF().then((data){
-      this.info = data;
-    });
-  }
+  Future getDados(String rota,String token, String cpf) async{
 
-  Future getDados(String rota,String token,String cpf) async{
-
-    var url = baseUrl + rota +'?id='+cpf;
+    var url = baseUrl + rota +'?id='+ cpf;
 
     Map<String, String> headers = {
       'Content-type' : 'application/json',
