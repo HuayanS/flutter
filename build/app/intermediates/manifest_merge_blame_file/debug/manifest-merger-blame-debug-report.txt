@@ -1,0 +1,120 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.gruponobre.flutter_teste"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="18"
+9        android:targetSdkVersion="28" />
+10    <!--
+11         Flutter needs it to communicate with the running application
+12         to allow setting breakpoints, to provide hot reload, etc.
+13    -->
+14    <uses-permission android:name="android.permission.INTERNET" />
+14-->C:\Users\suporte.GRUPONOBRE\Downloads\flutter-0612\android\app\src\debug\AndroidManifest.xml:6:5-66
+14-->C:\Users\suporte.GRUPONOBRE\Downloads\flutter-0612\android\app\src\debug\AndroidManifest.xml:6:22-64
+15    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- Include required permissions for Google Maps API to run. -->
+15-->[:geolocator] C:\Users\suporte.GRUPONOBRE\Downloads\flutter-0612\build\geolocator\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-79
+15-->[:geolocator] C:\Users\suporte.GRUPONOBRE\Downloads\flutter-0612\build\geolocator\intermediates\library_manifest\debug\AndroidManifest.xml:7:22-76
+16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+16-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\suporte.GRUPONOBRE\.gradle\caches\transforms-2\files-2.1\6b9b7fc1ad481537ed0a66d62976ec46\play-services-maps-17.0.0\AndroidManifest.xml:23:5-79
+16-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\suporte.GRUPONOBRE\.gradle\caches\transforms-2\files-2.1\6b9b7fc1ad481537ed0a66d62976ec46\play-services-maps-17.0.0\AndroidManifest.xml:23:22-76
+17
+18    <uses-feature
+18-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\suporte.GRUPONOBRE\.gradle\caches\transforms-2\files-2.1\6b9b7fc1ad481537ed0a66d62976ec46\play-services-maps-17.0.0\AndroidManifest.xml:26:5-28:35
+19        android:glEsVersion="0x00020000"
+19-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\suporte.GRUPONOBRE\.gradle\caches\transforms-2\files-2.1\6b9b7fc1ad481537ed0a66d62976ec46\play-services-maps-17.0.0\AndroidManifest.xml:27:9-41
+20        android:required="true" />
+20-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\suporte.GRUPONOBRE\.gradle\caches\transforms-2\files-2.1\6b9b7fc1ad481537ed0a66d62976ec46\play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
+21    <!--
+22 io.flutter.app.FlutterApplication is an android.app.Application that
+23         calls FlutterMain.startInitialization(this); in its onCreate method.
+24         In most cases you can leave this as-is, but you if you want to provide
+25         additional functionality it is fine to subclass or reimplement
+26         FlutterApplication and put your custom class here.
+27    -->
+28    <application
+28-->C:\Users\suporte.GRUPONOBRE\Downloads\flutter-0612\android\app\src\main\AndroidManifest.xml:9:5-37:19
+29        android:name="io.flutter.app.FlutterApplication"
+29-->C:\Users\suporte.GRUPONOBRE\Downloads\flutter-0612\android\app\src\main\AndroidManifest.xml:11:9-57
+30        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+30-->[androidx.core:core:1.0.2] C:\Users\suporte.GRUPONOBRE\.gradle\caches\transforms-2\files-2.1\fecc98e05c7ccd4a0eedf7cff343a233\core-1.0.2\AndroidManifest.xml:22:18-86
+31        android:debuggable="true"
+32        android:icon="@mipmap/ic_launcher"
+32-->C:\Users\suporte.GRUPONOBRE\Downloads\flutter-0612\android\app\src\main\AndroidManifest.xml:13:9-43
+33        android:label="flutter_teste" >
+33-->C:\Users\suporte.GRUPONOBRE\Downloads\flutter-0612\android\app\src\main\AndroidManifest.xml:12:9-38
+34        <meta-data
+34-->C:\Users\suporte.GRUPONOBRE\Downloads\flutter-0612\android\app\src\main\AndroidManifest.xml:14:9-15:70
+35            android:name="com.google.android.geo.API_KEY"
+35-->C:\Users\suporte.GRUPONOBRE\Downloads\flutter-0612\android\app\src\main\AndroidManifest.xml:14:20-65
+36            android:value="AIzaSyBH0AEepR9YpnM1K8dpi2IGb8VodOUXphc" />
+36-->C:\Users\suporte.GRUPONOBRE\Downloads\flutter-0612\android\app\src\main\AndroidManifest.xml:15:13-68
+37
+38        <activity
+38-->C:\Users\suporte.GRUPONOBRE\Downloads\flutter-0612\android\app\src\main\AndroidManifest.xml:16:9-35:20
+39            android:name="com.gruponobre.flutter_teste.MainActivity"
+39-->C:\Users\suporte.GRUPONOBRE\Downloads\flutter-0612\android\app\src\main\AndroidManifest.xml:18:13-41
+40            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+40-->C:\Users\suporte.GRUPONOBRE\Downloads\flutter-0612\android\app\src\main\AndroidManifest.xml:21:13-144
+41            android:hardwareAccelerated="true"
+41-->C:\Users\suporte.GRUPONOBRE\Downloads\flutter-0612\android\app\src\main\AndroidManifest.xml:22:13-47
+42            android:launchMode="singleTop"
+42-->C:\Users\suporte.GRUPONOBRE\Downloads\flutter-0612\android\app\src\main\AndroidManifest.xml:19:13-43
+43            android:theme="@style/LaunchTheme"
+43-->C:\Users\suporte.GRUPONOBRE\Downloads\flutter-0612\android\app\src\main\AndroidManifest.xml:20:13-47
+44            android:windowSoftInputMode="adjustResize" >
+44-->C:\Users\suporte.GRUPONOBRE\Downloads\flutter-0612\android\app\src\main\AndroidManifest.xml:23:13-55
+45
+46            <!--
+47                 This keeps the window background of the activity showing
+48                 until Flutter renders its first frame. It can be removed if
+49                 there is no splash screen (such as the default splash screen
+50                 defined in @style/LaunchTheme).
+51            -->
+52            <meta-data
+52-->C:\Users\suporte.GRUPONOBRE\Downloads\flutter-0612\android\app\src\main\AndroidManifest.xml:28:13-30:40
+53                android:name="io.flutter.app.android.SplashScreenUntilFirstFrame"
+53-->C:\Users\suporte.GRUPONOBRE\Downloads\flutter-0612\android\app\src\main\AndroidManifest.xml:29:17-82
+54                android:value="true" />
+54-->C:\Users\suporte.GRUPONOBRE\Downloads\flutter-0612\android\app\src\main\AndroidManifest.xml:30:17-37
+55
+56            <intent-filter>
+56-->C:\Users\suporte.GRUPONOBRE\Downloads\flutter-0612\android\app\src\main\AndroidManifest.xml:31:13-34:29
+57                <action android:name="android.intent.action.MAIN" />
+57-->C:\Users\suporte.GRUPONOBRE\Downloads\flutter-0612\android\app\src\main\AndroidManifest.xml:32:17-68
+57-->C:\Users\suporte.GRUPONOBRE\Downloads\flutter-0612\android\app\src\main\AndroidManifest.xml:32:25-66
+58
+59                <category android:name="android.intent.category.LAUNCHER" />
+59-->C:\Users\suporte.GRUPONOBRE\Downloads\flutter-0612\android\app\src\main\AndroidManifest.xml:33:17-76
+59-->C:\Users\suporte.GRUPONOBRE\Downloads\flutter-0612\android\app\src\main\AndroidManifest.xml:33:27-74
+60            </intent-filter>
+61        </activity>
+62
+63        <!-- Needs to be explicitly declared on P+ -->
+64        <uses-library
+64-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\suporte.GRUPONOBRE\.gradle\caches\transforms-2\files-2.1\6b9b7fc1ad481537ed0a66d62976ec46\play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
+65            android:name="org.apache.http.legacy"
+65-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\suporte.GRUPONOBRE\.gradle\caches\transforms-2\files-2.1\6b9b7fc1ad481537ed0a66d62976ec46\play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
+66            android:required="false" />
+66-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\suporte.GRUPONOBRE\.gradle\caches\transforms-2\files-2.1\6b9b7fc1ad481537ed0a66d62976ec46\play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
+67
+68        <activity
+68-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\suporte.GRUPONOBRE\.gradle\caches\transforms-2\files-2.1\5ac9ad6f13ea0190a3570ea7a43d9f59\play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
+69            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+69-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\suporte.GRUPONOBRE\.gradle\caches\transforms-2\files-2.1\5ac9ad6f13ea0190a3570ea7a43d9f59\play-services-base-17.0.0\AndroidManifest.xml:24:13-79
+70            android:exported="false"
+70-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\suporte.GRUPONOBRE\.gradle\caches\transforms-2\files-2.1\5ac9ad6f13ea0190a3570ea7a43d9f59\play-services-base-17.0.0\AndroidManifest.xml:25:13-37
+71            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+71-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\suporte.GRUPONOBRE\.gradle\caches\transforms-2\files-2.1\5ac9ad6f13ea0190a3570ea7a43d9f59\play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+72
+73        <meta-data
+73-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\suporte.GRUPONOBRE\.gradle\caches\transforms-2\files-2.1\fa7f67212818fec8ec45ab79d656d278\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+74            android:name="com.google.android.gms.version"
+74-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\suporte.GRUPONOBRE\.gradle\caches\transforms-2\files-2.1\fa7f67212818fec8ec45ab79d656d278\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+75            android:value="@integer/google_play_services_version" />
+75-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\suporte.GRUPONOBRE\.gradle\caches\transforms-2\files-2.1\fa7f67212818fec8ec45ab79d656d278\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+76    </application>
+77
+78</manifest>
