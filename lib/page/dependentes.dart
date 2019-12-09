@@ -69,7 +69,7 @@ class ListaAPI extends StatelessWidget {
                       scrollDirection: Axis.vertical,
                       itemCount: snapshot.data.length,
                       itemBuilder: (context, i) {
-                        return Text(snapshot.data[i]['codidepe']);
+                        return Text(snapshot.data[i]['codidepeff']);
                       },
                     )
                   : Text('');
