@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_teste/page/dependentes.dart';
 import 'package:flutter_teste/page/home.page.dart';
 import 'page/login.page.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.amber,
       ),
-      home:HomePage(),
+      home:DependentesPage(),
     );
   }
 }
