@@ -9,14 +9,16 @@ class ServiceAPI {
   final String baseUrl = "http://plasa.develapi.gruponobre.com";
   var info = {};
 
-  Future getDados(String rota,String token, String cpf) async{
+  Future getDados(String rota, {String codibene = ''}) async{
 
-    var url = baseUrl + rota +'?id='+ cpf;
+    Map data = await LoginApi().getTokenCPF();
+
+    var url = codibene == '' ? baseUrl + rota +'?id='+ data['cpf'] : baseUrl + rota +'?id='+ codibene;
 
     Map<String, String> headers = {
       'Content-type' : 'application/json',
       'Accept': '*/*',
-      'Authorization' : 'Bearer ' + token,
+      'Authorization' : 'Bearer ' + data['token'],
       'Cache-Control' : 'no-cache',
     };
 

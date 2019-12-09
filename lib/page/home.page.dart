@@ -11,39 +11,38 @@ import 'package:flutter_teste/page/postomo.dart';
 import 'package:flutter_teste/services/http_service.dart';
 import 'package:flutter_teste/services/login_api.dart';
 
-
-
 class HomePage extends StatelessWidget {
-
   Widget image_slider_carousel = Container(
     height: 300,
     child: Carousel(
       images: [
-        AssetImage( 'assets/image-1.png'),
-        AssetImage( 'assets/image-2.png'),
-        AssetImage( 'assets/image-3.png'),
+        AssetImage('assets/image-1.png'),
+        AssetImage('assets/image-2.png'),
+        AssetImage('assets/image-3.png'),
       ],
       autoplay: true,
       indicatorBgPadding: 1.0,
-
     ),
   );
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
         children: <Widget>[
-
           image_slider_carousel,
 
-          new Padding(padding: const EdgeInsets.all(8.0),
-            child: new Text('Categorias',textAlign: TextAlign.center,),
+          new Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: new Text(
+              'Categorias',
+              textAlign: TextAlign.center,
+            ),
           ),
           //horizontal teste aqui
           HorizontalList(),
-          new Padding(padding: const EdgeInsets.all(20.0),
+          new Padding(
+            padding: const EdgeInsets.all(20.0),
           ),
           Container(
             height: 320.0,
@@ -52,31 +51,34 @@ class HomePage extends StatelessWidget {
         ],
       ),
       appBar: new AppBar(
-        title: Image.asset('assets/plasa.png',fit: BoxFit.cover),
-
+        title: Image.asset('assets/plasa.png', fit: BoxFit.cover),
         centerTitle: true,
       ),
-
       drawer: new Drawer(
         child: ListView(
           children: <Widget>[
-            new UserAccountsDrawerHeader(
-              accountName: new Text('Huayan Santiago'),
-              currentAccountPicture: new CircleAvatar(
-                backgroundImage: new NetworkImage('https://picsum.photos/250?image=9'),
-              ),
-            ),
-
+            new FutureBuilder(
+                future: ServiceAPI().getDados('/beneficiario'),
+                builder: (context, snapshot) {
+                  return new UserAccountsDrawerHeader(
+                    accountName: new Text(snapshot.data['nomebene']),
+                    currentAccountPicture: new CircleAvatar(
+                      backgroundImage:
+                          new NetworkImage('https://picsum.photos/250?image=9'),
+                    ),
+                  );
+                }),
             new ListTile(
               title: new Text('Carteirinha'),
               onTap: () {
                 Navigator.of(context).pop();
-                Navigator.push(context, new MaterialPageRoute
-                  (builder: (BuildContext context) => new CarteirinhaPage()));
+                Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (BuildContext context) =>
+                            new CarteirinhaPage()));
               },
-
             ),
-
             new Divider(
               color: Colors.black,
             ),
@@ -84,24 +86,28 @@ class HomePage extends StatelessWidget {
               title: new Text('Dependentes'),
               onTap: () {
                 Navigator.of(context).pop();
-                Navigator.push(context, new MaterialPageRoute
-                  (builder: (BuildContext context) => new DependentesPage()));
+                Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (BuildContext context) =>
+                            new DependentesPage()));
               },
             ),
             new Divider(
               color: Colors.black,
-
             ),
             new Divider(
               color: Colors.black,
-
             ),
             new ListTile(
               title: new Text('Pagamentos'),
               onTap: () {
                 Navigator.of(context).pop();
-                Navigator.push(context, new MaterialPageRoute
-                  (builder: (BuildContext context) => new PagamentosPage()));
+                Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (BuildContext context) =>
+                            new PagamentosPage()));
               },
             ),
             new Divider(
@@ -110,16 +116,16 @@ class HomePage extends StatelessWidget {
             new Divider(
               color: Colors.black,
             ),
-
             new ListTile(
               title: new Text('Cobrança'),
               onTap: () {
                 Navigator.of(context).pop();
-                Navigator.push(context, new MaterialPageRoute
-                  (builder: (BuildContext context) => new CobrancaPage()));
+                Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (BuildContext context) => new CobrancaPage()));
               },
             ),
-
             new Divider(
               color: Colors.black,
             ),
@@ -127,8 +133,10 @@ class HomePage extends StatelessWidget {
               title: new Text('Postomo'),
               onTap: () {
                 Navigator.of(context).pop();
-                Navigator.push(context, new MaterialPageRoute
-                  (builder: (BuildContext context) => new PostomoPage()));
+                Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (BuildContext context) => new PostomoPage()));
               },
             ),
             new Divider(
@@ -138,8 +146,10 @@ class HomePage extends StatelessWidget {
               title: new Text('Sair'),
               onTap: () {
                 Navigator.of(context).pop();
-                Navigator.push(context, new MaterialPageRoute
-                  (builder: (BuildContext context) => new LoginPage()));
+                Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (BuildContext context) => new LoginPage()));
               },
             ),
           ],

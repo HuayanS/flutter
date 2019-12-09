@@ -10,16 +10,6 @@ class DependentesPage extends StatefulWidget {
 }
 
 class _DependentesPageState extends State<DependentesPage> {
-
-  Future api() async{
-
-      Map data = await LoginApi().getTokenCPF();
-
-      var dados = await ServiceAPI().getDados('/contratos', data['token'], data['cpf']);
-
-      return dados;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,16 +20,43 @@ class _DependentesPageState extends State<DependentesPage> {
         ),
         centerTitle: true,
       ),
-      body: Container(
-        child: FutureBuilder(
-          future: api(),
+      body: Row(children: [
+        FutureBuilder(
+          future: ServiceAPI().getDados('/dependentes', codibene: '417844'),
           builder: (context, snapshot) {
             return snapshot.data != null
-                ? Text(snapshot.data[1]['codibene'])
+                ? DropdownButton<String>(
+                    value: dropdownValue,
+                    onChanged: (String newValue) {
+                      setState(() {
+                        dropdownValue = newValue;
+                      });
+                    },
+                    items: <String>['One', 'Two', 'Free', 'Four']
+                        .map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                  )
+                : Text('das');
+          },
+        ),
+        FutureBuilder(
+          future: ServiceAPI().getDados('/dependentes', codibene: '417844'),
+          builder: (context, snapshot) {
+            return snapshot.data != null
+                ? ListView.builder(
+                    itemCount: snapshot.data.length - 1,
+                    itemBuilder: (context, i) {
+                      return Text(snapshot.data[i].toString());
+                    },
+                  )
                 : Text('');
           },
         ),
-      ),
+      ]),
     );
   }
 }
