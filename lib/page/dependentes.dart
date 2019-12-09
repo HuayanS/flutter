@@ -26,7 +26,7 @@ class _DependentesPageState extends State<DependentesPage> {
         FutureBuilder(
           future: ServiceAPI().getDados('/contratos'),
           builder: (context, snapshot) {
-            return snapshot.data != null
+            return snapshot.connectionState == ConnectionState.done
                 ? DropdownButton<String>(
                     value: contrato,
                     onChanged: (String newValue) {
@@ -42,7 +42,7 @@ class _DependentesPageState extends State<DependentesPage> {
                       );
                     }).toList(),
                   )
-                : Text('das');
+                : CircularProgressIndicator();
           },
         ),
         ListaAPI('/dependentes', contrato),
