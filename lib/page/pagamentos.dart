@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_teste/componets/contrato_select.dart';
 
 
 class PagamentosPage extends StatefulWidget {
@@ -15,13 +16,9 @@ class _PagamentosPageState extends State<PagamentosPage> {
         title: new Image.asset("assets/plasa.png",fit: BoxFit.cover,),
         centerTitle: true,
       ),
-      body: ListView(
-        children: <Widget>[
-          new Padding(padding: const EdgeInsets.all(8.0),
-            child: new Text('Seus Pagamentos',textAlign: TextAlign.center,),
-          ),
-        ],
-      ),
+      body: Container(
+        child: ContratoSelect(),
+      )
     );
   }
 }

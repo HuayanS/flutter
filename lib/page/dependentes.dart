@@ -1,16 +1,8 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_teste/services/http_service.dart';
-import 'package:flutter_teste/services/login_api.dart';
 
-class DependentesPage extends StatefulWidget {
-  @override
-  _DependentesPageState createState() => _DependentesPageState();
-}
+import 'package:flutter_teste/componets/contrato_select.dart';
 
-class _DependentesPageState extends State<DependentesPage> {
-  String contratoSelec = '';
+class DependentesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -22,63 +14,10 @@ class _DependentesPageState extends State<DependentesPage> {
         ),
         centerTitle: true,
       ),
-      body: Column(children: [
-        FutureBuilder(
-          future: ServiceAPI().getDados('/contratos'),
-          builder: (context, snapshot) {
-            List<String> contratos = [];
-
-            if(snapshot.connectionState == ConnectionState.done) {
-              snapshot.data.forEach((x) => contratos.add(x['codibene']));
-            }
-
-            return snapshot.connectionState == ConnectionState.done
-                ? DropdownButton<String>(
-                    value: contratoSelec == '' ? null : contratoSelec,
-                    hint: Text('Escolha um contrato'),
-                    onChanged: (String novoContrato) {
-                      setState(() {
-                        contratoSelec = novoContrato;
-                      });
-                    },//jtyjyj
-                    items: contratos.map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
-                  )
-                : CircularProgressIndicator();
-          },
-        ),
-        ListaAPI('/dependentes', contratoSelec),
-      ]),
+      body: Container(
+        child: ContratoSelect(),
+      ),
     );
   }
 }
 
-class ListaAPI extends StatelessWidget {
-  String url;
-  String contrato;
-
-  ListaAPI(this.url, this.contrato);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        height: 500,
-        child: FutureBuilder(
-            future: ServiceAPI().getDados(url, codibene: contrato),
-            builder: (context, snapshot) {
-              return snapshot.data != null
-                  ? ListView.builder(
-                      scrollDirection: Axis.vertical,
-                      itemCount: snapshot.data.length,
-                      itemBuilder: (context, i) {
-                        return Text(snapshot.data[i]['nomedepe']);
-                      },
-                    )
-                  : Text('');
-            }));
-  }
-}
