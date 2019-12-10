@@ -40,7 +40,7 @@ class _DependentesPageState extends State<DependentesPage> {
                       setState(() {
                         contratoSelec = novoContrato;
                       });
-                    },
+                    },//jtyjyj
                     items: contratos.map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
