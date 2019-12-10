@@ -10,7 +10,7 @@ class DependentesPage extends StatefulWidget {
 }
 
 class _DependentesPageState extends State<DependentesPage> {
-  String contrato = '417844';
+  String contratoSelec = '';
 
   @override
   Widget build(BuildContext context) {
@@ -26,16 +26,22 @@ class _DependentesPageState extends State<DependentesPage> {
         FutureBuilder(
           future: ServiceAPI().getDados('/contratos'),
           builder: (context, snapshot) {
+            List<String> contratos = [];
+
+            if(snapshot.connectionState == ConnectionState.done) {
+              snapshot.data.forEach((x) => contratos.add(x['codibene']));
+            }
+
             return snapshot.connectionState == ConnectionState.done
                 ? DropdownButton<String>(
-                    value: contrato,
-                    onChanged: (String newValue) {
+                    value: contratoSelec == '' ? null : contratoSelec,
+                    hint: Text('Escolha um contrato'),
+                    onChanged: (String novoContrato) {
                       setState(() {
-                        contrato = newValue;
+                        contratoSelec = novoContrato;
                       });
                     },
-                    items: <String>['417844', '415072', '417847', '426484']
-                        .map<DropdownMenuItem<String>>((String value) {
+                    items: contratos.map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
                         child: Text(value),
@@ -45,7 +51,7 @@ class _DependentesPageState extends State<DependentesPage> {
                 : CircularProgressIndicator();
           },
         ),
-        ListaAPI('/dependentes', contrato),
+        ListaAPI('/dependentes', contratoSelec),
       ]),
     );
   }
@@ -69,7 +75,7 @@ class ListaAPI extends StatelessWidget {
                       scrollDirection: Axis.vertical,
                       itemCount: snapshot.data.length,
                       itemBuilder: (context, i) {
-                        return Text(snapshot.data[i]['codidepe']);
+                        return Text(snapshot.data[i]['nomedepe']);
                       },
                     )
                   : Text('');
