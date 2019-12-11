@@ -157,7 +157,7 @@ class infoCardFal extends StatelessWidget {
           dado,
           style: TextStyle(
             fontSize: 12.0,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.bold,//a
             color: Colors.redAccent,
           ),
         ),
