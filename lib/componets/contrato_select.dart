@@ -10,7 +10,7 @@ class ContratoSelect extends StatefulWidget {
 
 class _ContratoSelect extends State<ContratoSelect> {
   String selectedContrato = '';
-
+  //apagar
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
